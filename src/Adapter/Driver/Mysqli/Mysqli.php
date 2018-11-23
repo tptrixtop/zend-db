@@ -209,6 +209,9 @@ class Mysqli implements DriverInterface, Profiler\ProfilerAwareInterface
             if (! $this->connection->isConnected()) {
                 $this->connection->connect();
             }
+            /**
+             * TODO pass here Connection instead of resource and then inside Statement reconnect on lose connection;
+             */
             $statement->initialize($this->connection->getResource());
         }
         return $statement;
