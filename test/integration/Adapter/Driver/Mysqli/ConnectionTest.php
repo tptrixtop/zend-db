@@ -4,6 +4,7 @@ namespace ZendIntegrationTest\Db\Adapter\Driver\Mysqli;
 
 use PHPUnit\Framework\TestCase;
 use Zend\Db\Adapter\Driver\Mysqli\Connection;
+use Zend\Db\Adapter\Exception\ConnectionException;
 
 /**
  * @group integration
@@ -51,5 +52,15 @@ class ConnectionTest extends TestCase
 
         self::assertTrue($connection->isConnected());
         $connection->disconnect();
+    }
+
+    public function testConnectionFail()
+    {
+        $this->expectException(ConnectionException::class);
+
+        $connection = new Connection([
+            'username' => time()
+        ]);
+        $connection->connect();
     }
 }
