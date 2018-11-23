@@ -148,7 +148,6 @@ class Connection extends AbstractConnection
             }
         }
 
-
         try {
             $this->resource->real_connect($hostname, $username, $password, $database, $port, $socket, $flags);
         } catch (GenericException $e) {

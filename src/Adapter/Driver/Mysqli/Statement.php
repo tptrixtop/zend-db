@@ -44,7 +44,7 @@ class Statement implements StatementInterface, Profiler\ProfilerAwareInterface
     protected $parameterContainer = null;
 
     /**
-     * @var \mysqli_stmt
+     * @var \mysqli_stmt|resource
      */
     protected $resource = null;
 
@@ -101,7 +101,7 @@ class Statement implements StatementInterface, Profiler\ProfilerAwareInterface
     /**
      * Initialize
      *
-     * @param  \mysqli $mysqli
+     * @param  \mysqli|resource $mysqli
      * @return self Provides a fluent interface
      */
     public function initialize(\mysqli $mysqli)
