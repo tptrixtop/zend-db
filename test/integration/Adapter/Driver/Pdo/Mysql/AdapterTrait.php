@@ -6,6 +6,11 @@ use Zend\Db\Adapter\Adapter;
 
 trait AdapterTrait
 {
+    /**
+     * @var Adapter
+     */
+    protected $adapter;
+
     public function setUp()
     {
         if (! getenv('TESTS_ZEND_DB_ADAPTER_DRIVER_MYSQL')) {
